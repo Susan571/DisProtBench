@@ -8,7 +8,7 @@
 
 <!-- Stylish Buttons -->
 <p>
-  <img src="" alt="DisProtBench" width="80%">
+  <img src="Figures/Benchmark.png" alt="DisProtBench" width="80%">
 </p>
 
 </div>
