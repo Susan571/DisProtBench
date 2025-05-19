@@ -48,6 +48,8 @@ We open-sourced our benchmark on [Kaggle](https://doi.org/10.34740/kaggle/ds/740
 ### 📂 Models Toolbox
 We benchmark state-of-the-art PSPMs spanning diverse architectures, inputs, and structural representations across protein-related tasks, as summarized below:
 
+<div align="center">
+
 | **PSPM**       | **Task**       | **Architecture**     | **Input**       | **Source**         | **Structural Representation**                |
 |----------------|----------------|-----------------------|------------------|---------------------|------------------------|
 | AF2            | PPI, Drug      | Evoformer             | MSA              | [Paper](https://www.nature.com/articles/s41586-021-03819-2)            | Atomic                 |
@@ -61,26 +63,30 @@ We benchmark state-of-the-art PSPMs spanning diverse architectures, inputs, and 
 | OmegaFold      | Drug           | Transformer           | Seq-only         | [Paper](https://www.biorxiv.org/content/10.1101/2022.07.21.500999v1)             | Coarse-grained         |
 | RoseTTAFold    | Drug           | Hybrid (CNN+Attn)     | MSA              | [Paper](https://pubmed.ncbi.nlm.nih.gov/34282049/)           | Atomic                 |
 | DeepFold       | Drug           | Custom DL             | Seq-only         | [Paper](https://pubmed.ncbi.nlm.nih.gov/37995286/)       | Atomic                 |
+</div>
 
 ### 📊 Evaluation ToolBox
 We evaluate model performance using a comprehensive set of classification, regression, and structural interface metrics, defined as follows:
 
-| **Metric**                        | **Definition / Formula**                                                                                                           |
-|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **Classification Metrics**       |                                                                                                                                     |
-| Precision (Positive Predictive Value) | $\displaystyle \frac{\text{TP}}{\text{TP} + \text{FP}}$                                                                      |
-| Recall (Sensitivity)             | $\displaystyle \frac{\text{TP}}{\text{TP} + \text{FN}}$                                                                      |
-| F1 Score                         | $\displaystyle \frac{2 \cdot \text{TP}}{2 \cdot \text{TP} + \text{FP} + \text{FN}}$                                           |
-| Accuracy                         | $\displaystyle \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}$                                   |
-| **Regression Metrics**           |                                                                                                                                     |
-| Mean Absolute Error (MAE)        | $\displaystyle \frac{1}{N} \sum_{i=1}^{N} \left| y_i - \hat{y}_i \right|$                                                     |
-| Mean Squared Error (MSE)         | $\displaystyle \frac{1}{N} \sum_{i=1}^{N} \left( y_i - \hat{y}_i \right)^2$                                                    |
-| Pearson Correlation Coefficient ($R$) | $\displaystyle \frac{ \sum_{i=1}^{N} (y_i - \bar{y})(\hat{y}_i - \bar{\hat{y}}) }{ \sqrt{ \sum_{i=1}^{N} (y_i - \bar{y})^2 } \cdot \sqrt{ \sum_{i=1}^{N} (\hat{y}_i - \bar{\hat{y}})^2 } }$ |
-| **Structural Interface Metrics** |                                                                                                                                     |
-| Receptor Precision (RP)          | $\displaystyle \frac{|\text{True Receptor Interface} \cap \text{Predicted Receptor Interface}|}{|\text{Predicted Receptor Interface}|}$ |
-| Receptor Recall (RR)             | $\displaystyle \frac{|\text{True Receptor Interface} \cap \text{Predicted Receptor Interface}|}{|\text{True Receptor Interface}|}$    |
-| Ligand Precision (LP)            | $\displaystyle \frac{|\text{Predicted Ligand Interface} \cap \text{True Receptor Interface}|}{|\text{Predicted Ligand Interface}|}$   |
-| Ligand Recall (LR)               | $\displaystyle \frac{|\text{True Ligand Interface} \cap \text{Predicted Receptor Interface}|}{|\text{True Ligand Interface}|}$        |
+<div align="center">
+  
+| **Metric**                         | **Definition / Formula**                                                                                       |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **Classification Metrics**        |                                                                                                               |
+| Precision (Positive Predictive Value) | TP / (TP + FP)                                                                                             |
+| Recall (Sensitivity)              | TP / (TP + FN)                                                                                               |
+| F1 Score                          | 2 × TP / (2 × TP + FP + FN)                                                                                  |
+| Accuracy                          | (TP + TN) / (TP + TN + FP + FN)                                                                              |
+| **Regression Metrics**            |                                                                                                               |
+| Mean Absolute Error (MAE)         | (1/N) × Σ |yᵢ − ŷᵢ|                                                                                         |
+| Mean Squared Error (MSE)          | (1/N) × Σ (yᵢ − ŷᵢ)²                                                                                        |
+| Pearson Correlation Coefficient (R) | Σ[(yᵢ − ȳ)(ŷᵢ − ŷ̄)] / √(Σ(yᵢ − ȳ)² × Σ(ŷᵢ − ŷ̄)²)                                                           |
+| **Structural Interface Metrics**  |                                                                                                               |
+| Receptor Precision (RP)           | `size(True ∩ Pred Receptor) / size(Pred Receptor)`                                                                    |
+| Receptor Recall (RR)              | `size(True ∩ Pred Receptor) / size(True Receptor)`                                                                    |
+| Ligand Precision (LP)             | `size(Pred Ligand ∩ True Receptor) / size(Pred Ligand)`                                                            |
+| Ligand Recall (LR)                | `size(True Ligand ∩ Pred Receptor) / size(True Ligand)`                                                         |
+</div>
 
 For the definitions of Receptor and Ligand, we follow the work of [*Multi-level analysis of intrinsically disordered protein docking methods*](https://pubmed.ncbi.nlm.nih.gov/35609776/):
 
@@ -101,6 +107,8 @@ We use PPI prediction as a downstream task for evaluating PSPMs with the followi
 
 We examine the robustness of PSPMs in predicting PPI, a setting where disordered regions frequently mediate transient or flexible binding. The results are as follows:
 
+<div align="center">
+  
 |          | **Original** |          |         |        | **pLDDT ≥ 30** |          |         |        | **pLDDT ≥ 50** |          |         |        |
 | -------- | ------------ | -------- | ------- | ------ | -------------- | -------- | ------- | ------ | -------------- | -------- | ------- | ------ |
 | **PSPM** | **Acc**      | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** |
@@ -111,6 +119,9 @@ We examine the robustness of PSPMs in predicting PPI, a setting where disordered
 | OpenFold | 0.624        | 0.605    | 0.605   | 0.605  | 0.643          | 0.622    | 0.638   | 0.630  | 0.671          | 0.656    | 0.651   | 0.653  |
 | Proteinx | 0.810        | 0.809    | 0.812   | 0.810  | 0.819          | 0.820    | 0.818   | 0.819  | 0.834          | 0.834    | 0.835   | 0.834  |
 | UniFold  | 0.552        | 0.378    | 0.667   | 0.483  | 0.567          | 0.389    | 0.667   | 0.491  | 0.597          | 0.417    | 0.714   | 0.526  |
+</div>
+
+**Heatmaps** of -log10(p) values from McNemar tests comparing pairwise model performance on PPI prediction across different pLDDT thresholds. **Left**: full sequence; **Middle**: pLDDT ≥ 30; **Right**: pLDDT ≥ 50. Higher values indicate greater statistical significance between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
 
 <p align="center"> <img src="Figures/overall_pvalue_heatmap_PPI.png" alt="PPI Heatmap" width="100%"> </p>
 
@@ -121,6 +132,8 @@ We use drug discovery as a downstream task for evaluating PSPMs with the followi
 
 We examine the robustness of PSPMs in discovering drug, a setting where disordered regions frequently mediate transient or flexible binding. The results are as follows:
 
+<div align="center">
+  
 |             | **Original** |       | **pLDDT ≥ 30** |       | **pLDDT ≥ 50** |       |
 | ----------- | ------------ | ----- | -------------- | ----- | -------------- | ----- |
 | **Model**   | **MAE**      | **R** | **MAE**        | **R** | **MAE**        | **R** |
@@ -135,5 +148,8 @@ We examine the robustness of PSPMs in discovering drug, a setting where disorder
 | AlphaFold2  | 0.160        | 0.985 | 0.160          | 0.985 | 0.160          | 0.985 |
 | UniFold     | 0.183        | 0.981 | 0.183          | 0.981 | 0.184          | 0.981 |
 | RoseTTAFold | 0.190        | 0.979 | 0.190          | 0.979 | 0.190          | 0.979 |
+</div>
+
+**Heatmaps** of -log10(p) values from Wilcoxon signed-rank tests comparing model performance in drug discovery tasks across different pLDDT thresholds. **Left**: full sequence; **Middle**: pLDDT ≥ 30; **Right**: pLDDT ≥ 50. Higher values indicate greater statistical significance in pairwise differences between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
 
 <p align="center"> <img src="Figures/overall_pvalue_heatmap_Drug.png" alt="Drug Heatmap" width="100%"> </p>
