@@ -82,11 +82,58 @@ We evaluate model performance using a comprehensive set of classification, regre
 | Ligand Precision (LP)            | $\displaystyle \frac{|\text{Predicted Ligand Interface} \cap \text{True Receptor Interface}|}{|\text{Predicted Ligand Interface}|}$   |
 | Ligand Recall (LR)               | $\displaystyle \frac{|\text{True Ligand Interface} \cap \text{Predicted Receptor Interface}|}{|\text{True Ligand Interface}|}$        |
 
+For the definitions of Receptor and Ligand, we follow the work of [*Multi-level analysis of intrinsically disordered protein docking methods*](https://pubmed.ncbi.nlm.nih.gov/35609776/):
+
+<p align="center"> <img src="Figures/ligand_receptor.jpg" alt="Definition" width="100%"> </p>
+
 ## 🎨 Visualize Portal
-More visualizations please link to 
+For more visualizations please link to 
 
 🔗 **Visual-Interactive Interface**: [DisProtBench](http://zhoulab-1.cs.vt.edu:8501/) 
 
 <p align="center"> <img src="Figures/UI.png" alt="Visualization Examples" width="100%"> </p>
 
+## 🏗️ Results
+### PPI Prediction
+We use PPI prediction as a downstream task for evaluating PSPMs with the following pipeline:
 
+<p align="center"> <img src="Figures/PPI.png" alt="PPI Pipeline" width="100%"> </p>
+
+We examine the robustness of PSPMs in predicting PPI, a setting where disordered regions frequently mediate transient or flexible binding. The results are as follows:
+
+|          | **Original** |          |         |        | **pLDDT ≥ 30** |          |         |        | **pLDDT ≥ 50** |          |         |        |
+| -------- | ------------ | -------- | ------- | ------ | -------------- | -------- | ------- | ------ | -------------- | -------- | ------- | ------ |
+| **PSPM** | **Acc**      | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** |
+| AF2      | 0.793        | 0.783    | 0.799   | 0.791  | 0.802          | 0.791    | 0.812   | 0.801  | 0.818          | 0.809    | 0.825   | 0.817  |
+| AF3      | 0.900        | 0.888    | 0.915   | 0.901  | 0.905          | 0.893    | 0.905   | 0.906  | 0.913          | 0.899    | 0.930   | 0.914  |
+| Boltz    | 0.850        | 0.848    | 0.853   | 0.850  | 0.858          | 0.853    | 0.863   | 0.858  | 0.869          | 0.870    | 0.868   | 0.869  |
+| Chai     | 0.850        | 0.841    | 0.863   | 0.852  | 0.858          | 0.847    | 0.873   | 0.860  | 0.869          | 0.857    | 0.887   | 0.871  |
+| OpenFold | 0.624        | 0.605    | 0.605   | 0.605  | 0.643          | 0.622    | 0.638   | 0.630  | 0.671          | 0.656    | 0.651   | 0.653  |
+| Proteinx | 0.810        | 0.809    | 0.812   | 0.810  | 0.819          | 0.820    | 0.818   | 0.819  | 0.834          | 0.834    | 0.835   | 0.834  |
+| UniFold  | 0.552        | 0.378    | 0.667   | 0.483  | 0.567          | 0.389    | 0.667   | 0.491  | 0.597          | 0.417    | 0.714   | 0.526  |
+
+<p align="center"> <img src="Figures/overall_pvalue_heatmap_PPI.png" alt="PPI Heatmap" width="100%"> </p>
+
+### Drug Discovery
+We use drug discovery as a downstream task for evaluating PSPMs with the following pipeline:
+
+<p align="center"> <img src="Figures/Drug.png" alt="Drug Discovery Pipeline" width="100%"> </p>
+
+We examine the robustness of PSPMs in discovering drug, a setting where disordered regions frequently mediate transient or flexible binding. The results are as follows:
+
+|             | **Original** |       | **pLDDT ≥ 30** |       | **pLDDT ≥ 50** |       |
+| ----------- | ------------ | ----- | -------------- | ----- | -------------- | ----- |
+| **Model**   | **MAE**      | **R** | **MAE**        | **R** | **MAE**        | **R** |
+| AlphaFold3  | 0.048        | 0.999 | 0.048          | 0.999 | 0.049          | 0.999 |
+| Proteinx    | 0.072        | 0.997 | 0.072          | 0.997 | 0.072          | 0.997 |
+| Boltz       | 0.079        | 0.996 | 0.079          | 0.996 | 0.080          | 0.996 |
+| Chai        | 0.096        | 0.995 | 0.096          | 0.995 | 0.097          | 0.995 |
+| DeepFold    | 0.144        | 0.988 | 0.144          | 0.988 | 0.144          | 0.988 |
+| ESMFold     | 0.150        | 0.987 | 0.150          | 0.987 | 0.151          | 0.987 |
+| OmegaFold   | 0.151        | 0.987 | 0.151          | 0.987 | 0.152          | 0.987 |
+| OpenFold    | 0.151        | 0.987 | 0.151          | 0.987 | 0.151          | 0.987 |
+| AlphaFold2  | 0.160        | 0.985 | 0.160          | 0.985 | 0.160          | 0.985 |
+| UniFold     | 0.183        | 0.981 | 0.183          | 0.981 | 0.184          | 0.981 |
+| RoseTTAFold | 0.190        | 0.979 | 0.190          | 0.979 | 0.190          | 0.979 |
+
+<p align="center"> <img src="Figures/overall_pvalue_heatmap_Drug.png" alt="Drug Heatmap" width="100%"> </p>
