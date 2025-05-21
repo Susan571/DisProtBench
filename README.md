@@ -78,9 +78,7 @@ We evaluate model performance using a comprehensive set of classification, regre
 | Accuracy                          | (TP + TN) / (TP + TN + FP + FN)    |  Classification Metrics        |
 | Mean Absolute Error (MAE)         | $\displaystyle \frac{1}{N}\sum_{i=1}^{N}\lvert y_i-\hat{y}_i\rvert$   | Regression Metrics           |
 | Mean Squared Error (MSE)          | $\displaystyle \frac{1}{N}\sum_{i=1}^{N}\bigl(y_i - \hat{y}_i\bigr)^2$   | Regression Metrics            |
-| Pearson Correlation Coefficient (R) | $\displaystyle \frac{\sum_{i=1}^{N} (y_i - \bar{y})\,(\hat{y}_i - \bar{\hat{y}})}
-     {\sqrt{\left(\sum_{i=1}^{N} (y_i - \bar{y})^{2}\right)\!\times\!\left(\sum_{i=1}^{N} (\hat{y}_i - \bar{\hat{y}})^{2}\right)}}$
-| Regression Metrics           |
+| Pearson Correlation Coefficient (R) | Σ[(yᵢ − ȳ)(ŷᵢ − ŷ̄)] / √(Σ(yᵢ − ȳ)² × Σ(ŷᵢ − ŷ̄)²)| Regression Metrics           |
 | Receptor Precision (RP)           | `size(True ∩ Pred Receptor) / size(Pred Receptor)`  | Structural Interface Metrics  |     
 | Receptor Recall (RR)              | `size(True ∩ Pred Receptor) / size(True Receptor)`   | Structural Interface Metrics |     
 | Ligand Precision (LP)             | `size(Pred Ligand ∩ True Receptor) / size(Pred Ligand)`    | Structural Interface Metrics  |     
