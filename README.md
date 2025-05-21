@@ -76,7 +76,7 @@ We evaluate model performance using a comprehensive set of classification, regre
 | Recall (Sensitivity)              | TP / (TP + FN)    |  Classification Metrics      |
 | F1 Score                          | 2 × TP / (2 × TP + FP + FN)    |  Classification Metrics        |
 | Accuracy                          | (TP + TN) / (TP + TN + FP + FN)    |  Classification Metrics        |
-| Mean Absolute Error (MAE)         | (1/N) × Σ |yᵢ − ŷᵢ|   | Regression Metrics           |
+| Mean Absolute Error (MAE)         | $\displaystyle \frac{1}{N}\sum_{i=1}^{N}\lvert y_i-\hat{y}_i\rvert$   | Regression Metrics           |
 | Mean Squared Error (MSE)          | (1/N) × Σ (yᵢ − ŷᵢ)²   | Regression Metrics            |
 | Pearson Correlation Coefficient (R) | Σ[(yᵢ − ȳ)(ŷᵢ − ŷ̄)] / √(Σ(yᵢ − ȳ)² × Σ(ŷᵢ − ŷ̄)²) | Regression Metrics           |
 | Receptor Precision (RP)           | `size(True ∩ Pred Receptor) / size(Pred Receptor)`  | Structural Interface Metrics  |     
@@ -265,13 +265,6 @@ python toolbox.py <ppi|cpi> <subcommand> [options]
 For generating protein structure, see the instructions of the models directly.
 
 ---
-
-## Citation
-
-If you use DisProtBench in your research, please cite:
-
-> DisProtBenchmark is a disorder-aware, task-rich benchmarking dataset designed to evaluate the performance of protein structure prediction models in realistic biological contexts.  
-> **Citation:** [10.34740/kaggle/ds/7400098](https://doi.org/10.34740/kaggle/ds/7400098)
 
 ## License
 
