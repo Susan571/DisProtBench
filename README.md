@@ -70,22 +70,19 @@ We evaluate model performance using a comprehensive set of classification, regre
 
 <div align="center">
   
-| **Metric**                         | **Definition / Formula**                                                                                       |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
-| **Classification Metrics**        |                                                                                                               |
-| Precision (Positive Predictive Value) | TP / (TP + FP)                                                                                             |
-| Recall (Sensitivity)              | TP / (TP + FN)                                                                                               |
-| F1 Score                          | 2 × TP / (2 × TP + FP + FN)                                                                                  |
-| Accuracy                          | (TP + TN) / (TP + TN + FP + FN)                                                                              |
-| **Regression Metrics**            |                                                                                                               |
-| Mean Absolute Error (MAE)         | (1/N) × Σ |yᵢ − ŷᵢ|                                                                                         |
-| Mean Squared Error (MSE)          | (1/N) × Σ (yᵢ − ŷᵢ)²                                                                                        |
-| Pearson Correlation Coefficient (R) | Σ[(yᵢ − ȳ)(ŷᵢ − ŷ̄)] / √(Σ(yᵢ − ȳ)² × Σ(ŷᵢ − ŷ̄)²)                                                           |
-| **Structural Interface Metrics**  |                                                                                                               |
-| Receptor Precision (RP)           | `size(True ∩ Pred Receptor) / size(Pred Receptor)`                                                                    |
-| Receptor Recall (RR)              | `size(True ∩ Pred Receptor) / size(True Receptor)`                                                                    |
-| Ligand Precision (LP)             | `size(Pred Ligand ∩ True Receptor) / size(Pred Ligand)`                                                            |
-| Ligand Recall (LR)                | `size(True Ligand ∩ Pred Receptor) / size(True Ligand)`                                                         |
+| **Metric**                         | **Definition / Formula**    | **Categorization**    | 
+|-----------------------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Precision (Positive Predictive Value) | TP / (TP + FP)     |  Classification Metrics        |
+| Recall (Sensitivity)              | TP / (TP + FN)    |  Classification Metrics      |
+| F1 Score                          | 2 × TP / (2 × TP + FP + FN)    |  Classification Metrics        |
+| Accuracy                          | (TP + TN) / (TP + TN + FP + FN)    |  Classification Metrics        |
+| Mean Absolute Error (MAE)         | (1/N) × Σ |yᵢ − ŷᵢ|   | Regression Metrics           |
+| Mean Squared Error (MSE)          | (1/N) × Σ (yᵢ − ŷᵢ)²   | Regression Metrics            |
+| Pearson Correlation Coefficient (R) | Σ[(yᵢ − ȳ)(ŷᵢ − ŷ̄)] / √(Σ(yᵢ − ȳ)² × Σ(ŷᵢ − ŷ̄)²) | Regression Metrics           |
+| Receptor Precision (RP)           | `size(True ∩ Pred Receptor) / size(Pred Receptor)`  | Structural Interface Metrics  |     
+| Receptor Recall (RR)              | `size(True ∩ Pred Receptor) / size(True Receptor)`   | Structural Interface Metrics |     
+| Ligand Precision (LP)             | `size(Pred Ligand ∩ True Receptor) / size(Pred Ligand)`    | Structural Interface Metrics  |     
+| Ligand Recall (LR)                | `size(True Ligand ∩ Pred Receptor) / size(True Ligand)`  | Structural Interface Metrics |     
 </div>
 
 For the definitions of Receptor and Ligand, we follow the work of [*Multi-level analysis of intrinsically disordered protein docking methods*](https://pubmed.ncbi.nlm.nih.gov/35609776/):
