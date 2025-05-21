@@ -85,7 +85,7 @@ We evaluate model performance using a comprehensive set of classification, regre
 | Ligand Recall (LR)                | `size(True Ligand ∩ Pred Receptor) / size(True Ligand)`  | Structural Interface Metrics |     
 </div>
 
-For the definitions of Receptor and Ligand, we follow the work of [*Multi-level analysis of intrinsically disordered protein docking methods*](https://pubmed.ncbi.nlm.nih.gov/35609776/):
+For the definitions of Receptor and Ligand, we follow the work of *Multi-level analysis of intrinsically disordered protein docking methods*:
 
 <p align="center"> <img src="Figures/ligand_receptor.jpg" alt="Definition" width="80%"> </p>
 
@@ -274,3 +274,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [LISA-CPI GitHub](https://github.com/ChengF-Lab/LISA-CPI?tab=readme-ov-file)
 - [SpatialPPI GitHub](https://github.com/ohuelab/SpatialPPI/tree/main)
 - [AlphaFold GitHub](https://github.com/deepmind/alphafold)
+- [*Multi-level analysis of intrinsically disordered protein docking methods*](https://pubmed.ncbi.nlm.nih.gov/35609776/)
