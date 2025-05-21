@@ -77,8 +77,8 @@ We evaluate model performance using a comprehensive set of classification, regre
 | F1 Score                          | 2 × TP / (2 × TP + FP + FN)    |  Classification Metrics        |
 | Accuracy                          | (TP + TN) / (TP + TN + FP + FN)    |  Classification Metrics        |
 | Mean Absolute Error (MAE)         | $\displaystyle \frac{1}{N}\sum_{i=1}^{N}\lvert y_i-\hat{y}_i\rvert$   | Regression Metrics           |
-| Mean Squared Error (MSE)          | (1/N) × Σ (yᵢ − ŷᵢ)²   | Regression Metrics            |
-| Pearson Correlation Coefficient (R) | Σ[(yᵢ − ȳ)(ŷᵢ − ŷ̄)] / √(Σ(yᵢ − ȳ)² × Σ(ŷᵢ − ŷ̄)²) | Regression Metrics           |
+| Mean Squared Error (MSE)          | $\displaystyle \frac{1}{N}\sum_{i=1}^{N}\bigl(y_i - \hat{y}_i\bigr)^2$   | Regression Metrics            |
+| Pearson Correlation Coefficient (R) | $\displaystyle \frac{\sum_{i=1}^{N}\bigl(y_i-\bar{y}\bigr)\bigl(\hat{y}i-\bar{\hat{y}}\bigr)}{\sqrt{\sum{i=1}^{N}!\bigl(y_i-\bar{y}\bigr)^{2};\sum_{i=1}^{N}!\bigl(\hat{y}_i-\bar{\hat{y}}\bigr)^{2}}}$ | Regression Metrics           |
 | Receptor Precision (RP)           | `size(True ∩ Pred Receptor) / size(Pred Receptor)`  | Structural Interface Metrics  |     
 | Receptor Recall (RR)              | `size(True ∩ Pred Receptor) / size(True Receptor)`   | Structural Interface Metrics |     
 | Ligand Precision (LP)             | `size(Pred Ligand ∩ True Receptor) / size(Pred Ligand)`    | Structural Interface Metrics  |     
