@@ -1,0 +1,12 @@
+Model,MSE
+AF2,0.0322
+AF3,0.0047
+Boltz,0.0043
+Chai,0.006
+DeepFold,0.0282
+ESMFold,0.048
+OmegaFold,0.0225
+OpenFold,0.0249
+Proteinx,0.0163
+RoseTTAFold,0.0678
+UniFold,0.0528
