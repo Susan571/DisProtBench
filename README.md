@@ -18,7 +18,7 @@ Recent advances in protein structure prediction have achieved near-atomic accura
 
 (2) **Task diversity**—benchmarking twelve leading PSPMs across structure-based tasks with unified classification, regression, and interface metrics; 
 
-(3) **Interpretability**—via the [DisProtBench Portal](http://zhoulab-1.cs.vt.edu:8501/), offering precomputed 3D structures and visual error analyses. 
+(3) **Interpretability**—via the [DisProtBench Portal](http://128.173.237.13:8501/), offering precomputed 3D structures and visual error analyses. 
 
 Our results reveal significant variability in model robustness under disorder, with low-confidence regions linked to functional prediction failures. Notably, global accuracy metrics often fail to predict task performance in disordered settings, emphasizing the need for function-aware evaluation. DisProtBench establishes a reproducible, extensible, and biologically grounded framework for assessing next-generation PSPMs in realistic biomedical scenarios.
 
@@ -32,7 +32,7 @@ We introduce DisProtBench with the following key contributions:
 (3) **Visual-Interactive Interface Development:** The DisProtBench Portal provides 3D visualizations, model comparison heatmaps, and interactive results to explore structure–function links, assess disorder-specific performance, and support hypothesis generation—without local setup.
 
 ## 📂 Datasets
-We open-sourced our benchmark on [Kaggle](https://doi.org/10.34740/kaggle/ds/7400098), consisting of the following subsets:
+We open-sourced our benchmark on Github here, consisting of the following subsets:
 
 | **Dataset**                  | **Description**                   | **# Number of Protein Only** | **Source**                                                                 |
 |-----------------------------|-----------------------------------|---------------|---------------------------------------------------------------------------|
@@ -88,7 +88,7 @@ For the definitions of Receptor and Ligand, we follow the work of *Multi-level a
 ## 🎨 Visualize Portal
 For more visualizations please link to 
 
-🔗 **Visual-Interactive Interface**: [DisProtBench](http://zhoulab-1.cs.vt.edu:8501/) 
+🔗 **Visual-Interactive Interface**: [DisProtBench](http://128.173.237.13:8501/) 
 
 <p align="center"> <img src="Figures/UI.png" alt="Visualization Examples" width="80%"> </p>
 
