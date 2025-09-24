@@ -18,7 +18,7 @@ Recent advances in protein structure prediction have achieved near-atomic accura
 
 (2) **Task diversity**—benchmarking twelve leading PSPMs across structure-based tasks with unified classification, regression, and interface metrics; 
 
-(3) **Interpretability**—via the [DisProtBench Portal](http://128.173.237.13:8501/), offering precomputed 3D structures and visual error analyses. 
+(3) **Interpretability**—via the DisProtBench Portal(will release after review due to the double blind policy), offering precomputed 3D structures and visual error analyses. 
 
 Our results reveal significant variability in model robustness under disorder, with low-confidence regions linked to functional prediction failures. Notably, global accuracy metrics often fail to predict task performance in disordered settings, emphasizing the need for function-aware evaluation. DisProtBench establishes a reproducible, extensible, and biologically grounded framework for assessing next-generation PSPMs in realistic biomedical scenarios.
 
@@ -88,7 +88,7 @@ For the definitions of Receptor and Ligand, we follow the work of *Multi-level a
 ## 🎨 Visualize Portal
 For more visualizations please link to 
 
-🔗 **Visual-Interactive Interface**: [DisProtBench](http://128.173.237.13:8501/) 
+🔗 **Visual-Interactive Interface**: DisProtBench Portal 
 
 <p align="center"> <img src="Figures/UI.png" alt="Visualization Examples" width="80%"> </p>
 
