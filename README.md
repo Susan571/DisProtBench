@@ -88,7 +88,7 @@ For the definitions of Receptor and Ligand, we follow the work of *Multi-level a
 ## 🎨 Visualize Portal
 For more visualizations please link to 
 
-🔗 **Visual-Interactive Interface**: DisProtBench Portal 
+🔗 **Visual-Interactive Interface**: DisProtBench Portal(will release after review due to the double blind policy)
 
 <p align="center"> <img src="Figures/UI.png" alt="Visualization Examples" width="80%"> </p>
 
