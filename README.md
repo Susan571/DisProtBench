@@ -42,9 +42,9 @@ We open-sourced our benchmark on Github here, consisting of the following subset
 
 | **Dataset**                  | **Description**                   | **# Number of Protein Only** | **Source**                                                                 |
 |-----------------------------|-----------------------------------|---------------|---------------------------------------------------------------------------|
-| **DisProt-Based Dataset**   | Disorder in human disease         | $\sim$10$^3$ proteins / $\sim$10$^4$ PPIs        | First proposed in our work                                                |
-| **Protein Interaction Dataset** | Disorder-mediated interfaces      |$\sim$10$^5$ interactions   | [GitHub](https://github.com/ohuelab/SpatialPPI/tree/main)                |
-| **Individual Protein Dataset** | Disorder and ligand binding       | $\sim$10$^3$ complexes | [GitHub](https://github.com/ChengF-Lab/LISA-CPI?tab=readme-ov-file)       |
+| **DisProt-Based Dataset**   | Disorder in human disease         | $\sim 10^3$ proteins / $\sim$10$^4$ PPIs        | First proposed in our work                                                |
+| **Protein Interaction Dataset** | Disorder-mediated interfaces      |$\sim 10^5$ interactions   | [GitHub](https://github.com/ohuelab/SpatialPPI/tree/main)                |
+| **Individual Protein Dataset** | Disorder and ligand binding       | $\sim 10^3$ complexes | [GitHub](https://github.com/ChengF-Lab/LISA-CPI?tab=readme-ov-file)       |
               
 ## 🏗️ Toolbox
 ### 📂 Models Toolbox
@@ -126,7 +126,7 @@ We examine the robustness of PSPMs in predicting PPI, a setting where disordered
 | -------- | ------------ | -------- | ------- | ------ | -------------- | -------- | ------- | ------ | -------------- | -------- | ------- | ------ |
 | **PSPM** | **Acc**      | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** |
 | AF2      | 0.793        | 0.783    | 0.799   | 0.791  | 0.802          | 0.791    | 0.812   | 0.801  | 0.818          | 0.809    | 0.825   | 0.817  |
-| AF3      | 0.900        | 0.888    | 0.915   | 0.901  | 0.905          | 0.893    | 0.905   | 0.906  | 0.913          | 0.899    | 0.930   | 0.914  |
+| AF3      | 0.902        | 0.888    | 0.915   | 0.901  | 0.905          | 0.893    | 0.905   | 0.906  | 0.913          | 0.899    | 0.930   | 0.914  |
 | Boltz    | 0.850        | 0.848    | 0.853   | 0.850  | 0.858          | 0.853    | 0.863   | 0.858  | 0.869          | 0.870    | 0.868   | 0.869  |
 | Chai     | 0.850        | 0.841    | 0.863   | 0.852  | 0.858          | 0.847    | 0.873   | 0.860  | 0.869          | 0.857    | 0.887   | 0.871  |
 | OpenFold | 0.624        | 0.605    | 0.605   | 0.605  | 0.643          | 0.622    | 0.638   | 0.630  | 0.671          | 0.656    | 0.651   | 0.653  |
