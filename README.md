@@ -39,9 +39,9 @@ We open-sourced our benchmark on Github here, consisting of the following subset
 
 | **Dataset**                  | **Description**                   | **# Number of Protein Only** | **Source**                                                                 |
 |-----------------------------|-----------------------------------|---------------|---------------------------------------------------------------------------|
-| **DisProt-Based Dataset**   | Disorder in human disease         | 3,060         | First proposed in our work                                                |
-| **Protein Interaction Dataset** | Disorder-mediated interfaces      | 1,200         | [GitHub](https://github.com/ohuelab/SpatialPPI/tree/main)                |
-| **Individual Protein Dataset** | Disorder and ligand binding       | 20            | [GitHub](https://github.com/ChengF-Lab/LISA-CPI?tab=readme-ov-file)       |
+| **DisProt-Based Dataset**   | Disorder in human disease         | $\sim$10$^3$ proteins / $\sim$10$^4$ PPIs        | First proposed in our work                                                |
+| **Protein Interaction Dataset** | Disorder-mediated interfaces      |$\sim$10$^5$ interactions   | [GitHub](https://github.com/ohuelab/SpatialPPI/tree/main)                |
+| **Individual Protein Dataset** | Disorder and ligand binding       | $\sim$10$^3$ complexes | [GitHub](https://github.com/ChengF-Lab/LISA-CPI?tab=readme-ov-file)       |
               
 ## 🏗️ Toolbox
 ### 📂 Models Toolbox
@@ -98,9 +98,9 @@ For more visualizations, please link to
 ## 🏗️ Results
 ### PPI Prediction
 #### Generation Evaluation
-The table below summarizes RR, RP, LR, and LP scores with 95% CI for each PSPM across three structural confidence thresholds (full sequence, pLDDT ≥ 30, and pLDDT ≥ 50), highlighting interface prediction performance under varying disorder levels:
+The table below summarizes RR, RP, LR, and LP scores with 95% CI for each PSPM across three structural confidence thresholds (full sequence, $\mathrm{FUS}_T(\tau=30)$, and $\mathrm{FUS}_T(\tau=50)$), highlighting interface prediction performance under varying disorder levels:
 
-|   | **Original**        |      |        |       | **pLDDT ≥ 30**        |      |     |         |**pLDDT ≥ 50**        |        |        |         |
+|   | **Original**        |      |        |       | **$\mathrm{FUS}_T(\tau=30)$**        |      |     |         |**$\mathrm{FUS}_T(\tau=50)$**        |        |        |         |
 |-------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|
 | **PSPM**   | **RR**       | **RP**       | **LR**       | **LP**       | **RR**        | **RP**        | **LR**        | **LP**        | **RR**        | **RP**        | **LR**        | **LP**        |
 | AF2         | 0.749 ± 0.0217      | 0.7186 ± 0.0226     | 0.7052 ± 0.0215     | 0.7486 ± 0.0215     | 0.7729 ± 0.0208     | 0.7426 ± 0.0217     | 0.7313 ± 0.0207     | 0.7719 ± 0.0204     | 0.7959 ± 0.0197     | 0.7663 ± 0.0207     | 0.7569 ± 0.0198     | 0.7946 ± 0.0193     |
@@ -119,7 +119,7 @@ We examine the robustness of PSPMs in predicting PPI, a setting where disordered
 
 <div align="center">
   
-|          | **Original** |          |         |        | **pLDDT ≥ 30** |          |         |        | **pLDDT ≥ 50** |          |         |        |
+|          | **Original** |          |         |        | **$\mathrm{FUS}_T(\tau=30)$** |          |         |        | **$\mathrm{FUS}_T(\tau=50)$** |          |         |        |
 | -------- | ------------ | -------- | ------- | ------ | -------------- | -------- | ------- | ------ | -------------- | -------- | ------- | ------ |
 | **PSPM** | **Acc**      | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** |
 | AF2      | 0.793        | 0.783    | 0.799   | 0.791  | 0.802          | 0.791    | 0.812   | 0.801  | 0.818          | 0.809    | 0.825   | 0.817  |
@@ -131,7 +131,7 @@ We examine the robustness of PSPMs in predicting PPI, a setting where disordered
 | UniFold  | 0.552        | 0.378    | 0.667   | 0.483  | 0.567          | 0.389    | 0.667   | 0.491  | 0.597          | 0.417    | 0.714   | 0.526  |
 </div>
 
-**Heatmaps** of -log10(p) values from McNemar tests comparing pairwise model performance on PPI prediction across different pLDDT thresholds. **Left**: full sequence; **Middle**: pLDDT ≥ 30; **Right**: pLDDT ≥ 50. Higher values indicate greater statistical significance between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
+**Heatmaps** of -log10(p) values from McNemar tests comparing pairwise model performance on PPI prediction across different pLDDT thresholds. **Left**: full sequence; **Middle**: $\mathrm{FUS}_T(\tau=30)$; **Right**: $\mathrm{FUS}_T(\tau=50)$. Higher values indicate greater statistical significance between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
 
 <p align="center"> <img src="Figures/overall_pvalue_heatmap_PPI.png" alt="PPI Heatmap" width="80%"> </p>
 
@@ -145,7 +145,7 @@ We examine the robustness of PSPMs in discovering drugs, a setting where disorde
 
 <div align="center">
   
-|             | **Original** |       | **pLDDT ≥ 30** |       | **pLDDT ≥ 50** |       |
+|             | **Original** |       | **$\mathrm{FUS}_T(\tau=30)$** |       | **$\mathrm{FUS}_T(\tau=50)$** |       |
 | ----------- | ------------ | ----- | -------------- | ----- | -------------- | ----- |
 | **Model**   | **MAE**      | **R** | **MAE**        | **R** | **MAE**        | **R** |
 | AlphaFold3  | 0.048        | 0.999 | 0.048          | 0.999 | 0.049          | 0.999 |
@@ -161,7 +161,7 @@ We examine the robustness of PSPMs in discovering drugs, a setting where disorde
 | RoseTTAFold | 0.190        | 0.979 | 0.190          | 0.979 | 0.190          | 0.979 |
 </div>
 
-**Heatmaps** of -log10(p) values from Wilcoxon signed-rank tests comparing model performance in drug discovery tasks across different pLDDT thresholds. **Left**: full sequence; **Middle**: pLDDT ≥ 30; **Right**: pLDDT ≥ 50. Higher values indicate greater statistical significance in pairwise differences between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
+**Heatmaps** of -log10(p) values from Wilcoxon signed-rank tests comparing model performance in drug discovery tasks across different pLDDT thresholds. **Left**: full sequence; **Middle**: $\mathrm{FUS}_T(\tau=30)$; **Right**: $\mathrm{FUS}_T(\tau=50)$. Higher values indicate greater statistical significance in pairwise differences between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
 
 <p align="center"> <img src="Figures/overall_pvalue_heatmap_Drug.png" alt="Drug Heatmap" width="80%"> </p>
 
