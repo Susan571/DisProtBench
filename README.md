@@ -16,14 +16,17 @@
 ---
 
 ## 📌 Abstract
-Recent advances in protein structure prediction have achieved near-atomic accuracy for well-folded proteins. However, existing benchmarks largely overlook biologically realistic settings involving intrinsically disordered regions (IDRs), limiting their ability to assess functional reliability in downstream applications such as protein–protein interaction (PPI) prediction and structure-based drug discovery.
+Recent advances in protein structure prediction have achieved near-atomic accuracy for well-folded proteins, but their reliability in biologically realistic settings involving intrinsically disordered regions (IDRs) remains poorly understood. Existing benchmarks primarily emphasize global structural accuracy and therefore fail to capture how structural uncertainty propagates to downstream functional tasks such as protein–protein interaction (PPI) prediction and structure-based drug discovery.
 
-We introduce **DisProtBench**, a disorder-aware, task-rich benchmark for evaluating protein structure prediction models (PSPMs) under structural uncertainty. DisProtBench spans three axes:  
-(1) **Data complexity**, covering disease-associated IDRs, GPCR–ligand complexes, and multimeric assemblies;  
-(2) **Task diversity**, benchmarking twelve PSPMs across classification, regression, and structural interface prediction tasks;  
-(3) **Functional interpretability**, via confidence-stratified evaluation using *Functional Uncertainty Sensitivity (FUS)* and an interactive visualization portal.
+In realistic biological settings, evaluating protein structure prediction models (PSPMs) is challenging due to three fundamental factors:
 
-Our results show that structural uncertainty localized in IDRs induces **task-dependent functional failure modes**: PPI prediction is highly sensitive to disorder-driven uncertainty, while structure-based drug discovery remains comparatively robust. Crucially, these effects are largely obscured by aggregate accuracy metrics. DisProtBench provides a reproducible and extensible framework for diagnosing uncertainty-aware model behavior in realistic biological contexts.
+- **Structural complexity:** Proteins often contain extensive IDRs, flexible segments, and multimeric interfaces that violate assumptions of rigid folding.
+- **Low availability of reliable ground truth:** Reliable experimental structures are scarce for disordered regions, making direct structural evaluation unreliable.
+- **Prediction uncertainty:** Structural uncertainty propagates into downstream prediction uncertainty, leading to task-dependent degradation in functional performance.
+
+We introduce **DisProtBench**, an IDR-centric, uncertainty-aware benchmark for evaluating PSPMs beyond static accuracy. DisProtBench integrates a large, multi-modal dataset spanning disease-associated IDRs, GPCR–ligand complexes, and multimeric protein assemblies, and evaluates models through downstream functional tasks. To explicitly diagnose uncertainty, we introduce **Functional Uncertainty Sensitivity (FUS)**, which stratifies evaluation by task-relevant structural uncertainty rather than confidence alone.
+
+Our results reveal clear task-dependent failure modes: PPI prediction is highly sensitive to IDR-driven uncertainty, whereas structure-based drug discovery remains comparatively robust. These differences are largely obscured by aggregate accuracy metrics. DisProtBench provides a reproducible and extensible framework for uncertainty-aware evaluation of protein structure prediction models in realistic biological contexts.
 
 ### 🔹 `DisProtBench` - A Unified Benchmark for IDR Investigation
 We introduce DisProtBench with the following key contributions:
