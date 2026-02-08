@@ -35,7 +35,7 @@ We introduce DisProtBench with the following key contributions:
 
 (2) **IDR-centric Toolbox Development:** We introduce a unified evaluation toolbox that benchmarks eleven PSPMs on disorder-sensitive downstream tasks, including PPI prediction and drug discovery, using consistent classification, regression, and structural interface metrics. Evaluation is performed via *Functional Uncertainty Sensitivity (FUS)*, which stratifies predictions by task-relevant structural uncertainty rather than confidence alone, enabling diagnosis of task-dependent failure modes across model families.
 
-(3) **Visual Analystics Interface Development:** The DisProtBench Portal provides 3D visualizations, model comparison heatmaps, and interactive results to explore structure–function links, assess disorder-specific performance, and support hypothesis generation—without local setup.
+(3) **Visual Analystics Interface Development:** The [DisProtBench Portal](http://128.173.237.13:8501/) provides 3D visualizations, model comparison heatmaps, and interactive results to explore structure–function links, assess disorder-specific performance, and support hypothesis generation—without local setup.
 
 ## 📂 Datasets
 We open-sourced our benchmark on Github here, consisting of the following subsets:
@@ -92,9 +92,9 @@ For the definitions of Receptor and Ligand, we follow the work of *Multi-level a
 <p align="center"> <img src="Figures/ligand_receptor.jpg" alt="Definition" width="80%"> </p>
 
 ## 🎨 Visualize Portal
-For more visualizations, please link to 
+For more visualizations, please link to [DisProtBench Portal](http://128.173.237.13:8501/).
 
-🔗 **Visual-Interactive Interface**: DisProtBench Portal
+🔗 **Visual-Interactive Interface**: [DisProtBench Portal](http://128.173.237.13:8501/)
 
 <p align="center"> <img src="Figures/UI.png" alt="Visualization Examples" width="80%"> </p>
 
