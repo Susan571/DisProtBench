@@ -16,24 +16,23 @@
 ---
 
 ## 📌 Abstract
-Recent advances in protein structure prediction have achieved near-atomic accuracy for well-folded proteins. However, current benchmarks inadequately assess model performance in biologically challenging contexts, especially those involving intrinsically disordered regions (IDRs), limiting their utility in applications like drug discovery, disease variant interpretation, and protein interface design. We introduce DisProtBench, a comprehensive benchmark for evaluating protein structure prediction models (PSPMs) under structural disorder and complex biological conditions. DisProtBench spans three key axes: 
+Recent advances in protein structure prediction have achieved near-atomic accuracy for well-folded proteins. However, existing benchmarks largely overlook biologically realistic settings involving intrinsically disordered regions (IDRs), limiting their ability to assess functional reliability in downstream applications such as protein–protein interaction (PPI) prediction and structure-based drug discovery.
 
-(1) **Data complexity**—covering disordered regions, G protein-coupled receptors (GPCR)–ligand pairs, and multimeric complexes; 
+We introduce **DisProtBench**, a disorder-aware, task-rich benchmark for evaluating protein structure prediction models (PSPMs) under structural uncertainty. DisProtBench spans three axes:  
+(1) **Data complexity**, covering disease-associated IDRs, GPCR–ligand complexes, and multimeric assemblies;  
+(2) **Task diversity**, benchmarking twelve PSPMs across classification, regression, and structural interface prediction tasks;  
+(3) **Functional interpretability**, via confidence-stratified evaluation using *Functional Uncertainty Sensitivity (FUS)* and an interactive visualization portal.
 
-(2) **Task diversity**—benchmarking twelve leading PSPMs across structure-based tasks with unified classification, regression, and interface metrics; 
-
-(3) **Interpretability**—via the DisProtBench Portal(will release after review due to the double blind policy), offering precomputed 3D structures and visual error analyses. 
-
-Our results reveal significant variability in model robustness under disorder, with low-confidence regions linked to functional prediction failures. Notably, global accuracy metrics often fail to predict task performance in disordered settings, emphasizing the need for function-aware evaluation. DisProtBench establishes a reproducible, extensible, and biologically grounded framework for assessing next-generation PSPMs in realistic biomedical scenarios.
+Our results show that structural uncertainty localized in IDRs induces **task-dependent functional failure modes**: PPI prediction is highly sensitive to disorder-driven uncertainty, while structure-based drug discovery remains comparatively robust. Crucially, these effects are largely obscured by aggregate accuracy metrics. DisProtBench provides a reproducible and extensible framework for diagnosing uncertainty-aware model behavior in realistic biological contexts.
 
 ### 🔹 `DisProtBench` - A Unified Benchmark for IDR Investigation
 We introduce DisProtBench with the following key contributions:
 
 (1) **Database Development:** We curate a large benchmark dataset spanning biologically complex IDR scenarios, including thousands of disease-associated human proteins, GPCR–ligand interactions, and multimeric complexes with disorder-mediated interfaces. It captures structural heterogeneity essential for assessing model robustness in realistic contexts.
 
-(2) **Task and Toolbox Development:** We introduce a unified evaluation toolbox to benchmark eleven PSPMs on disorder-sensitive tasks, using consistent metrics across PPI prediction, ligand binding, and contact mapping. Incorporating pLDDT-based stratification, DisProtBench uniquely isolates model behavior in ambiguous regions across tasks and model families.
+(2) **IDR-centric Toolbox Development:** We introduce a unified evaluation toolbox that benchmarks eleven PSPMs on disorder-sensitive downstream tasks, including PPI prediction and drug discovery, using consistent classification, regression, and structural interface metrics. Evaluation is performed via *Functional Uncertainty Sensitivity (FUS)*, which stratifies predictions by task-relevant structural uncertainty rather than confidence alone, enabling diagnosis of task-dependent failure modes across model families.
 
-(3) **Visual-Interactive Interface Development:** The DisProtBench Portal provides 3D visualizations, model comparison heatmaps, and interactive results to explore structure–function links, assess disorder-specific performance, and support hypothesis generation—without local setup.
+(3) **Visual Analystics Interface Development:** The DisProtBench Portal provides 3D visualizations, model comparison heatmaps, and interactive results to explore structure–function links, assess disorder-specific performance, and support hypothesis generation—without local setup.
 
 ## 📂 Datasets
 We open-sourced our benchmark on Github here, consisting of the following subsets:
@@ -90,9 +89,9 @@ For the definitions of Receptor and Ligand, we follow the work of *Multi-level a
 <p align="center"> <img src="Figures/ligand_receptor.jpg" alt="Definition" width="80%"> </p>
 
 ## 🎨 Visualize Portal
-For more visualizations please link to 
+For more visualizations, please link to 
 
-🔗 **Visual-Interactive Interface**: DisProtBench Portal(will release after review due to the double blind policy)
+🔗 **Visual-Interactive Interface**: DisProtBench Portal
 
 <p align="center"> <img src="Figures/UI.png" alt="Visualization Examples" width="80%"> </p>
 
