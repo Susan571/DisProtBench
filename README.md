@@ -131,7 +131,7 @@ We examine the robustness of PSPMs in predicting PPI, a setting where disordered
 | UniFold  | 0.552        | 0.378    | 0.667   | 0.483  | 0.567          | 0.389    | 0.667   | 0.491  | 0.597          | 0.417    | 0.714   | 0.526  |
 </div>
 
-**Heatmaps** of -log10(p) values from McNemar tests comparing pairwise model performance on PPI prediction across different pLDDT thresholds. **Left**: full sequence; **Middle**: $\mathrm{FUS}_T(\tau=30)$; **Right**: $\mathrm{FUS}_T(\tau=50)$. Higher values indicate greater statistical significance between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
+**Heatmaps** of -log10(p) values from McNemar tests comparing pairwise model performance on PPI prediction across different $\mathrm{FUS}_T(\tau)$. **Left**: full sequence; **Middle**: $\mathrm{FUS}_T(\tau=30)$; **Right**: $\mathrm{FUS}_T(\tau=50)$. Higher values indicate greater statistical significance between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
 
 <p align="center"> <img src="Figures/overall_pvalue_heatmap_PPI.png" alt="PPI Heatmap" width="80%"> </p>
 
@@ -161,7 +161,7 @@ We examine the robustness of PSPMs in discovering drugs, a setting where disorde
 | RoseTTAFold | 0.190        | 0.979 | 0.190          | 0.979 | 0.190          | 0.979 |
 </div>
 
-**Heatmaps** of -log10(p) values from Wilcoxon signed-rank tests comparing model performance in drug discovery tasks across different pLDDT thresholds. **Left**: full sequence; **Middle**: $\mathrm{FUS}_T(\tau=30)$; **Right**: $\mathrm{FUS}_T(\tau=50)$. Higher values indicate greater statistical significance in pairwise differences between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
+**Heatmaps** of -log10(p) values from Wilcoxon signed-rank tests comparing model performance in drug discovery tasks across different $\mathrm{FUS}_T(\tau)$. **Left**: full sequence; **Middle**: $\mathrm{FUS}_T(\tau=30)$; **Right**: $\mathrm{FUS}_T(\tau=50)$. Higher values indicate greater statistical significance in pairwise differences between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
 
 <p align="center"> <img src="Figures/overall_pvalue_heatmap_Drug.png" alt="Drug Heatmap" width="80%"> </p>
 
