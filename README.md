@@ -16,33 +16,32 @@
 ---
 
 ## 📌 Abstract
-Recent advances in protein structure prediction have achieved near-atomic accuracy for well-folded proteins. However, current benchmarks inadequately assess model performance in biologically challenging contexts, especially those involving intrinsically disordered regions (IDRs), limiting their utility in applications like drug discovery, disease variant interpretation, and protein interface design. We introduce DisProtBench, a comprehensive benchmark for evaluating protein structure prediction models (PSPMs) under structural disorder and complex biological conditions. DisProtBench spans three key axes: 
+Recent advances in protein structure prediction have achieved near-atomic accuracy for well-folded proteins. However, existing benchmarks largely overlook biologically realistic settings involving intrinsically disordered regions (IDRs), limiting their ability to assess functional reliability in downstream applications such as protein–protein interaction (PPI) prediction and structure-based drug discovery.
 
-(1) **Data complexity**—covering disordered regions, G protein-coupled receptors (GPCR)–ligand pairs, and multimeric complexes; 
+We introduce **DisProtBench**, a disorder-aware, task-rich benchmark for evaluating protein structure prediction models (PSPMs) under structural uncertainty. DisProtBench spans three axes:  
+(1) **Data complexity**, covering disease-associated IDRs, GPCR–ligand complexes, and multimeric assemblies;  
+(2) **Task diversity**, benchmarking twelve PSPMs across classification, regression, and structural interface prediction tasks;  
+(3) **Functional interpretability**, via confidence-stratified evaluation using *Functional Uncertainty Sensitivity (FUS)* and an interactive visualization portal.
 
-(2) **Task diversity**—benchmarking twelve leading PSPMs across structure-based tasks with unified classification, regression, and interface metrics; 
-
-(3) **Interpretability**—via the DisProtBench Portal(will release after review due to the double blind policy), offering precomputed 3D structures and visual error analyses. 
-
-Our results reveal significant variability in model robustness under disorder, with low-confidence regions linked to functional prediction failures. Notably, global accuracy metrics often fail to predict task performance in disordered settings, emphasizing the need for function-aware evaluation. DisProtBench establishes a reproducible, extensible, and biologically grounded framework for assessing next-generation PSPMs in realistic biomedical scenarios.
+Our results show that structural uncertainty localized in IDRs induces **task-dependent functional failure modes**: PPI prediction is highly sensitive to disorder-driven uncertainty, while structure-based drug discovery remains comparatively robust. Crucially, these effects are largely obscured by aggregate accuracy metrics. DisProtBench provides a reproducible and extensible framework for diagnosing uncertainty-aware model behavior in realistic biological contexts.
 
 ### 🔹 `DisProtBench` - A Unified Benchmark for IDR Investigation
 We introduce DisProtBench with the following key contributions:
 
 (1) **Database Development:** We curate a large benchmark dataset spanning biologically complex IDR scenarios, including thousands of disease-associated human proteins, GPCR–ligand interactions, and multimeric complexes with disorder-mediated interfaces. It captures structural heterogeneity essential for assessing model robustness in realistic contexts.
 
-(2) **Task and Toolbox Development:** We introduce a unified evaluation toolbox to benchmark eleven PSPMs on disorder-sensitive tasks, using consistent metrics across PPI prediction, ligand binding, and contact mapping. Incorporating pLDDT-based stratification, DisProtBench uniquely isolates model behavior in ambiguous regions across tasks and model families.
+(2) **IDR-centric Toolbox Development:** We introduce a unified evaluation toolbox that benchmarks eleven PSPMs on disorder-sensitive downstream tasks, including PPI prediction and drug discovery, using consistent classification, regression, and structural interface metrics. Evaluation is performed via *Functional Uncertainty Sensitivity (FUS)*, which stratifies predictions by task-relevant structural uncertainty rather than confidence alone, enabling diagnosis of task-dependent failure modes across model families.
 
-(3) **Visual-Interactive Interface Development:** The DisProtBench Portal provides 3D visualizations, model comparison heatmaps, and interactive results to explore structure–function links, assess disorder-specific performance, and support hypothesis generation—without local setup.
+(3) **Visual Analystics Interface Development:** The DisProtBench Portal provides 3D visualizations, model comparison heatmaps, and interactive results to explore structure–function links, assess disorder-specific performance, and support hypothesis generation—without local setup.
 
 ## 📂 Datasets
 We open-sourced our benchmark on Github here, consisting of the following subsets:
 
 | **Dataset**                  | **Description**                   | **# Number of Protein Only** | **Source**                                                                 |
 |-----------------------------|-----------------------------------|---------------|---------------------------------------------------------------------------|
-| **DisProt-Based Dataset**   | Disorder in human disease         | 3,060         | First proposed in our work                                                |
-| **Protein Interaction Dataset** | Disorder-mediated interfaces      | 1,200         | [GitHub](https://github.com/ohuelab/SpatialPPI/tree/main)                |
-| **Individual Protein Dataset** | Disorder and ligand binding       | 20            | [GitHub](https://github.com/ChengF-Lab/LISA-CPI?tab=readme-ov-file)       |
+| **DisProt-Based Dataset**   | Disorder in human disease         | $\sim$10$^3$ proteins / $\sim$10$^4$ PPIs        | First proposed in our work                                                |
+| **Protein Interaction Dataset** | Disorder-mediated interfaces      |$\sim$10$^5$ interactions   | [GitHub](https://github.com/ohuelab/SpatialPPI/tree/main)                |
+| **Individual Protein Dataset** | Disorder and ligand binding       | $\sim$10$^3$ complexes | [GitHub](https://github.com/ChengF-Lab/LISA-CPI?tab=readme-ov-file)       |
               
 ## 🏗️ Toolbox
 ### 📂 Models Toolbox
@@ -90,18 +89,18 @@ For the definitions of Receptor and Ligand, we follow the work of *Multi-level a
 <p align="center"> <img src="Figures/ligand_receptor.jpg" alt="Definition" width="80%"> </p>
 
 ## 🎨 Visualize Portal
-For more visualizations please link to 
+For more visualizations, please link to 
 
-🔗 **Visual-Interactive Interface**: DisProtBench Portal(will release after review due to the double blind policy)
+🔗 **Visual-Interactive Interface**: DisProtBench Portal
 
 <p align="center"> <img src="Figures/UI.png" alt="Visualization Examples" width="80%"> </p>
 
 ## 🏗️ Results
 ### PPI Prediction
 #### Generation Evaluation
-The table below summarizes RR, RP, LR, and LP scores with 95% CI for each PSPM across three structural confidence thresholds (full sequence, pLDDT ≥ 30, and pLDDT ≥ 50), highlighting interface prediction performance under varying disorder levels:
+The table below summarizes RR, RP, LR, and LP scores with 95% CI for each PSPM across three structural confidence thresholds (full sequence, $\mathrm{FUS}_T(\tau=30)$, and $\mathrm{FUS}_T(\tau=50)$), highlighting interface prediction performance under varying disorder levels:
 
-|   | **Original**        |      |        |       | **pLDDT ≥ 30**        |      |     |         |**pLDDT ≥ 50**        |        |        |         |
+|   | **Original**        |      |        |       | **$\mathrm{FUS}_T(\tau=30)$**        |      |     |         |**$\mathrm{FUS}_T(\tau=50)$**        |        |        |         |
 |-------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|
 | **PSPM**   | **RR**       | **RP**       | **LR**       | **LP**       | **RR**        | **RP**        | **LR**        | **LP**        | **RR**        | **RP**        | **LR**        | **LP**        |
 | AF2         | 0.749 ± 0.0217      | 0.7186 ± 0.0226     | 0.7052 ± 0.0215     | 0.7486 ± 0.0215     | 0.7729 ± 0.0208     | 0.7426 ± 0.0217     | 0.7313 ± 0.0207     | 0.7719 ± 0.0204     | 0.7959 ± 0.0197     | 0.7663 ± 0.0207     | 0.7569 ± 0.0198     | 0.7946 ± 0.0193     |
@@ -120,7 +119,7 @@ We examine the robustness of PSPMs in predicting PPI, a setting where disordered
 
 <div align="center">
   
-|          | **Original** |          |         |        | **pLDDT ≥ 30** |          |         |        | **pLDDT ≥ 50** |          |         |        |
+|          | **Original** |          |         |        | **$\mathrm{FUS}_T(\tau=30)$** |          |         |        | **$\mathrm{FUS}_T(\tau=50)$** |          |         |        |
 | -------- | ------------ | -------- | ------- | ------ | -------------- | -------- | ------- | ------ | -------------- | -------- | ------- | ------ |
 | **PSPM** | **Acc**      | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** | **Acc**        | **Prec** | **Rec** | **F1** |
 | AF2      | 0.793        | 0.783    | 0.799   | 0.791  | 0.802          | 0.791    | 0.812   | 0.801  | 0.818          | 0.809    | 0.825   | 0.817  |
@@ -132,7 +131,7 @@ We examine the robustness of PSPMs in predicting PPI, a setting where disordered
 | UniFold  | 0.552        | 0.378    | 0.667   | 0.483  | 0.567          | 0.389    | 0.667   | 0.491  | 0.597          | 0.417    | 0.714   | 0.526  |
 </div>
 
-**Heatmaps** of -log10(p) values from McNemar tests comparing pairwise model performance on PPI prediction across different pLDDT thresholds. **Left**: full sequence; **Middle**: pLDDT ≥ 30; **Right**: pLDDT ≥ 50. Higher values indicate greater statistical significance between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
+**Heatmaps** of -log10(p) values from McNemar tests comparing pairwise model performance on PPI prediction across different $\mathrm{FUS}_T(\tau)$. **Left**: full sequence; **Middle**: $\mathrm{FUS}_T(\tau=30)$; **Right**: $\mathrm{FUS}_T(\tau=50)$. Higher values indicate greater statistical significance between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
 
 <p align="center"> <img src="Figures/overall_pvalue_heatmap_PPI.png" alt="PPI Heatmap" width="80%"> </p>
 
@@ -146,7 +145,7 @@ We examine the robustness of PSPMs in discovering drugs, a setting where disorde
 
 <div align="center">
   
-|             | **Original** |       | **pLDDT ≥ 30** |       | **pLDDT ≥ 50** |       |
+|             | **Original** |       | **$\mathrm{FUS}_T(\tau=30)$** |       | **$\mathrm{FUS}_T(\tau=50)$** |       |
 | ----------- | ------------ | ----- | -------------- | ----- | -------------- | ----- |
 | **Model**   | **MAE**      | **R** | **MAE**        | **R** | **MAE**        | **R** |
 | AlphaFold3  | 0.048        | 0.999 | 0.048          | 0.999 | 0.049          | 0.999 |
@@ -162,7 +161,7 @@ We examine the robustness of PSPMs in discovering drugs, a setting where disorde
 | RoseTTAFold | 0.190        | 0.979 | 0.190          | 0.979 | 0.190          | 0.979 |
 </div>
 
-**Heatmaps** of -log10(p) values from Wilcoxon signed-rank tests comparing model performance in drug discovery tasks across different pLDDT thresholds. **Left**: full sequence; **Middle**: pLDDT ≥ 30; **Right**: pLDDT ≥ 50. Higher values indicate greater statistical significance in pairwise differences between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
+**Heatmaps** of -log10(p) values from Wilcoxon signed-rank tests comparing model performance in drug discovery tasks across different $\mathrm{FUS}_T(\tau)$. **Left**: full sequence; **Middle**: $\mathrm{FUS}_T(\tau=30)$; **Right**: $\mathrm{FUS}_T(\tau=50)$. Higher values indicate greater statistical significance in pairwise differences between PSPMs. Blank blocks indicate self-comparisons, which are omitted by definition.
 
 <p align="center"> <img src="Figures/overall_pvalue_heatmap_Drug.png" alt="Drug Heatmap" width="80%"> </p>
 
